@@ -5,12 +5,12 @@ var tagCountObject = require('./modules/tagCountObject');
 var countedTagArrayToString = require('./modules/countedTagArrayToString');
 
 // get tags from the CLI argument
-// and continue to afterGetTagsArray function after getTagsArray finishes
+// and continue to afterGetTagsArray function when getTagsArray finishes
 getTagsArray(afterGetTagsArray);
 
 
 // get tags from the data files
-// and continue to afterGetTagObjects function after getTagObjects finishes
+// and continue to afterGetTagObjects function when getTagObjects finishes
 function afterGetTagsArray (tagsArray) {
   getTagObjects(tagsArray, afterGetTagObjects);
 }
