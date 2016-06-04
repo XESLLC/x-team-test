@@ -2,21 +2,15 @@
 var fs = require('fs');
 
 var getTagsArray = function (callback) {
-  var tagsArray;
   console.log("starting getTagsArray");
-  // use file for input if no CLI arguments after first 2 defaults are provided
+  var tagsArray;
+  // use txt file for input if no 3rd CLI argument provided - the first two elements default to ([0] node and [1] name of js file)
   if (process.argv.length < 3) {
     fs.readFile('./node-exam/tags.txt', 'utf8', tagsStringToArray);
-
   } else {
-    //check for CLI arguments after the first two defaults
-    var commandLineTagsArray = [];
-    process.argv.forEach(function (tag) {
-      commandLineTagsArray.push(tag);
-    });
-    commandLineTagsArray.splice(0,2);
-    tagsArray = commandLineTagsArray;
-    // maintain asynch behavoir of module
+    //get 3rd CLI argument & maintain async behavior of module
+    commandLineTagsString = process.argv[2];
+    tagsArray = commandLineTagsString.split(",");
     process.nextTick(exitMod);
   }
 

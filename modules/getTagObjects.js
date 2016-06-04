@@ -4,15 +4,15 @@ var dataRoot = '../x-team/node-exam/data/';
 var getTagObjects = function (tagsArray, callback) {
   console.log('starting getTagObjects');
   var tagObjects = {};
-  // get all files names in data directory - asynch
+  // get all files names in data directory - async
   fs.readdir (dataRoot, function (err, fileNamesArray) {
     var fileObjects = [];
     var checkAll = 0;
     // iterate through all the files in data directory
     fileNamesArray.forEach(function (fileName, index, array) {
-      // retrieve all file data - asynch
+      // retrieve all file data - async
       fs.readFile(dataRoot + fileName, 'utf8', stringToObject);
-      // create objects from string output and check all asynch functions finish
+      // create objects from string output and check all async functions finish
       function stringToObject (err, fileContentString){
         try {
           contentObject = JSON.parse(fileContentString);
