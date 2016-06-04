@@ -15,7 +15,7 @@ function afterGetTagsArray (tagsArray) {
   checkCache(tagsArray,logAnswer, getTagObjects, afterGetTagObjects);
 }
 
-// get arrays for the inputed tags
+// get arrays for the user provided tags
 // order the tags from most listed to not listed and stringify for logging.
 function afterGetTagObjects (tagObjects, tagsArray) {
   var countedTagArrays = tagCountObject(tagObjects, tagsArray);
