@@ -6,6 +6,7 @@ function check (tagsArray, logAnswer, getTagObjects, afterGetTagObjects) {
   // if cache.txt read it and get string value of answers
   fs.readdir ('../x-team', function (err, fileNamesArray) {
     if (fileNamesArray.indexOf('cache.txt') !== -1) {
+
       fs.readFile('./cache.txt', 'utf8', function(err, cachedOrderedStrings) {
         var cachedAnswer;
         if (err) {console.log(err);}
@@ -13,6 +14,7 @@ function check (tagsArray, logAnswer, getTagObjects, afterGetTagObjects) {
         answerArray.pop();
         answerArray.shift();
         var answer = false;
+
         // check user input with cached user inputs
         answerArray.forEach(function (cachedElem) {
           var filterElemString = cachedElem.replace("\n", "");
@@ -27,6 +29,7 @@ function check (tagsArray, logAnswer, getTagObjects, afterGetTagObjects) {
             }
           });
         });
+        
         console.log("finished check and retrieved cached answer -", answer || false);
         if (answer) {
           logAnswer (cachedAnswer);
